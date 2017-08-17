@@ -38,7 +38,7 @@ public class HelloWildFlyController {
             for (int i = 1; i <= resultSet.getFetchSize(); i++) {
                 stringBuilder.append(resultSet.getString(i)+ " ");
             }
-            stringBuilder.append("<br>");
+            stringBuilder.append("   XDDD  <br>");
         }
         connection.close();
         return (stringBuilder.toString());
