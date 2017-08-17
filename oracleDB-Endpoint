@@ -1,0 +1,10 @@
+kind: "Endpoints"
+  apiVersion: "v1"
+  metadata:
+    name: "external-oracle-service"
+  subsets:
+      addresses:
+          ip: "10.72.0.4"
+      ports:
+          port: 1521
+          name: "oracle"

@@ -1,0 +1,35 @@
+kind: "DeploymentConfig"
+  apiVersion: "v1"
+  metadata:
+    name: "my-app-deployment"
+  spec:
+    strategy:
+      type: "Rolling"
+      rollingParams:
+        updatePeriodSeconds: 1
+        intervalSeconds: 1
+        timeoutSeconds: 120
+    replicas: 2
+    selector:
+      name: "frontend"
+    template:
+      metadata:
+        labels:
+          name: "frontend"
+      spec:
+        containers:
+            name: "helloworld"
+            image: "origin-ruby-sample"
+            ports:
+                containerPort: 3306
+                protocol: "TCP"
+            env:
+              -
+                name: "MYSQL_USER"
+                value: "${MYSQL_USER}"
+              -
+                name: "MYSQL_PASSWORD"
+                value: "${MYSQL_PASSWORD}"
+              -
+                name: "MYSQL_DATABASE"
+                value: "${MYSQL_DATABASE}"
