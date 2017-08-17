@@ -1,9 +1,10 @@
- kind: "Service"
+  kind: "Service"
   apiVersion: "v1"
   metadata:
-    name: "external-oracle-service"
+    name: "oracle-db-service"
   spec:
     ports:
+      -
         name: "oracle"
         protocol: "TCP"
         port: 1521

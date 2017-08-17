@@ -12,6 +12,10 @@ public class HelloWildFlyController {
     public String sayHello() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (Exception e) {
+            return ("Can't create driver ;_;");
+        }
+        try {
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:kredki1", "admki", "admki");
             connection.close();
         } catch (Exception e) {
