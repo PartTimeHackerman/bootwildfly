@@ -1,6 +1,5 @@
 package bootwildfly;
 
-import oracle.jdbc.driver.OracleDriver;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +11,7 @@ public class HelloWildFlyController {
     @RequestMapping("hello")
     public String sayHello() {
         try {
-        OracleDriver od = new OracleDriver();
-        System.out.println(od.toString());
+            Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (Exception e) {
             return ("Can't create driver ;_;");
         }
