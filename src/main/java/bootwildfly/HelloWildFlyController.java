@@ -1,5 +1,6 @@
 package bootwildfly;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +10,8 @@ import java.sql.*;
 
 @RestController
 public class HelloWildFlyController {
-    @RequestMapping("hello")
-    public String sayHello() throws SQLException {
+    @RequestMapping("hello/{rowNum}")
+    public String sayHello(@PathVariable("rowNum") Long rowNum) throws SQLException {
         Connection connection = null;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -23,7 +24,7 @@ public class HelloWildFlyController {
             Boolean isReachable = false;
 
             try {
-                isReachable = InetAddress.getByAddress(new byte[] { 10, 72, 0, 4 }).isReachable(5000);
+                isReachable = InetAddress.getByAddress(new byte[]{10, 72, 0, 4}).isReachable(5000);
             } catch (IOException e1) {
                 return (isReachable.toString());
             }
@@ -32,13 +33,13 @@ public class HelloWildFlyController {
 
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM BANK WHERE ROWNUM <= 5");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM BANK WHERE ROWNUM <= " + rowNum);
         StringBuilder stringBuilder = new StringBuilder();
-        while (resultSet.next()){
+        while (resultSet.next()) {
             for (int i = 1; i <= resultSet.getFetchSize(); i++) {
-                stringBuilder.append(resultSet.getString(i)+ " ");
+                stringBuilder.append(resultSet.getString(i) + " ");
             }
-            stringBuilder.append("   XDDD  <br>");
+            stringBuilder.append("<br>");
         }
         connection.close();
         return (stringBuilder.toString());
