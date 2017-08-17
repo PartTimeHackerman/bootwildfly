@@ -19,7 +19,6 @@ public class HelloWildFlyController {
         }
         try {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@10.72.0.4:1521:kredki1", "admki", "admki");
-            connection.close();
         } catch (Exception e) {
             Boolean isReachable = false;
 
@@ -41,8 +40,7 @@ public class HelloWildFlyController {
             }
             stringBuilder.append("\n");
         }
-
-
+        connection.close();
         return (stringBuilder.toString());
 
     }
