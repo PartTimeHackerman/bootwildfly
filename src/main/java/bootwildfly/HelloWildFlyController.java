@@ -11,8 +11,12 @@ import java.sql.DriverManager;
 public class HelloWildFlyController {
     @RequestMapping("hello")
     public String sayHello() {
+        try {
         OracleDriver od = new OracleDriver();
         System.out.println(od.toString());
+        } catch (Exception e) {
+            return ("Can't create driver ;_;");
+        }
         try {
             Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:kredki1", "admki", "admki");
             connection.close();
