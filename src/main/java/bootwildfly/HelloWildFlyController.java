@@ -16,8 +16,8 @@ public class HelloWildFlyController {
             connection.close();
         } catch (Exception e) {
             return ("Can't connect ;_;");
-        } finally {
-            return ("Connected! :3");
         }
+        return ("Connected! :3");
+
     }
 }
