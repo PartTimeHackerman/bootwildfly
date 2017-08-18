@@ -1,0 +1,17 @@
+objects:
+  apiVersion: v1
+  kind: BuildConfig
+  metadata:
+      name: "mvn-build-config"
+  spec:
+    output:
+    sourceStrategy:
+        env:
+        - name: MAVEN_ARGS_APPEND
+        value: clean
+        from:
+          kind: ImageStreamTag
+          name: bootwildfly:latest
+          namespace: springboottest
+    type: Source
+  status: {}
