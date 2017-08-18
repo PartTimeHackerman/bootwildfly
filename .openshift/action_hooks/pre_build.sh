@@ -1,1 +1,2 @@
-echo "PRE-BUILD HOOK!!"
+#!/usr/bin/env bash
+echo -e "PRE-BUILD HOOK!!"
