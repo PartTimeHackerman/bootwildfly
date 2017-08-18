@@ -33,7 +33,8 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>12.2.0.1</version>
-			<!--<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>-->
+			<scope>provided</scope>
+			<systemPath>${basedir}/lib/ojdbc8.jar</systemPath>
 		</dependency>
 	</dependencies>
 
@@ -66,10 +67,10 @@
 			<id>spring-releases</id>
 			<url>https://repo.spring.io/libs-release</url>
 		</repository>
-		<repository>
+		<!--<repository>
 			<id>lib</id>
 			<url>file://${project.basedir}/lib</url>
-		</repository>
+		</repository>-->
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
