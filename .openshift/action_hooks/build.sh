@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo -e "BUILD HOOK!!"
+echo -e "BUILD HOOK!!!"
