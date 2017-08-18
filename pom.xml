@@ -63,7 +63,7 @@
                 <version>2.5.2</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
