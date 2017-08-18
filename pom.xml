@@ -73,6 +73,7 @@
                             <artifactId>ojdbc</artifactId>
                             <packaging>jar</packaging>
                             <version>12.2.0.1</version>
+                            <localRepositoryPath>lib</localRepositoryPath>
                         </configuration>
                     </execution>
                 </executions>
